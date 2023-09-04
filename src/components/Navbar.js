@@ -21,10 +21,10 @@ const Navbar = ({navBarLinks}) => {
                 <FiMenu size={25} className='navbar--menu' onClick={toggleMenuClicked} />
             )}
             <ul className={menuClicked ? 'navbar--list-active' : 'navbar--list'}>
-                {navBarLinks.map(nav => {
+                {navBarLinks.map((nav, idx) => {
                     return (
-                        <li className='navbar--nav'>
-                            <a className='navbar--link' href={nav.url}>{nav.title}</a>
+                        <li key={idx} className='navbar--nav'>
+                            <a className='navbar--link' target='_blank' href={nav.url}>{nav.title}</a>
                         </li>
                     )
                 })}</ul>
