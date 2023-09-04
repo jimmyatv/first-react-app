@@ -3,8 +3,7 @@ import "./Navbar.css"
 import { FiMenu, FiX } from "react-icons/fi";
 
 
-const Navbar = ({ navBarLinks }) => {
-
+const Navbar = ({navBarLinks}) => {
 
     const [menuClicked, setMenuClicked] = useState(false);
 
@@ -21,15 +20,14 @@ const Navbar = ({ navBarLinks }) => {
             ) : (
                 <FiMenu size={25} className='navbar--menu' onClick={toggleMenuClicked} />
             )}
-            <ul className={menuClicked ? 'navbar--list-active' : 'navbar--list'}>{navBarLinks.map(item => {
-                return (
-                    <li className='navbar--item'>
-                        <a className='navbar--link' href={item.url}>
-                            {item.title}
-                        </a>
-                    </li>
-                )
-            })}</ul>
+            <ul className={menuClicked ? 'navbar--list-active' : 'navbar--list'}>
+                {navBarLinks.map(nav => {
+                    return (
+                        <li className='navbar--nav'>
+                            <a className='navbar--link' href={nav.url}>{nav.title}</a>
+                        </li>
+                    )
+                })}</ul>
         </nav>
     )
 }
